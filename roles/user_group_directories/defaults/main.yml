@@ -1,0 +1,5 @@
+---
+# defaults file for user_group_directories
+    username: 'monitoring'
+    random_pwd: "{{ lookup('password', '/dev/null length=20 chars=ascii_letters,digits,hexdigits') }}"
+    random_salt: "{{ lookup('password', '/dev/null length=16 chars=ascii_letters,digits,hexdigits') }}"

@@ -1,0 +1,10 @@
+---
+- import_tasks: required_variables.yml
+- import_tasks: dependencies.yml
+- import_tasks: import_key.yml
+- import_tasks: install_rvm.yml
+- import_tasks: install_ruby.yml
+- import_tasks: gem_update_system.yml
+- import_tasks: setup_ssl_check_ruby_script.yml
+- import_tasks: slack.yml
+- import_tasks: ssl_expiry.yml

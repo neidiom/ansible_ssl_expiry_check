@@ -1,0 +1,14 @@
+---
+- name: Update RubyGems
+  become: yes
+  become_user: "{{ username }}"
+  shell: >
+    /bin/bash -c "source $HOME/.rvm/scripts/rvm && gem update --system"
+  args:
+    warn: no
+    executable: /bin/bash
+    chdir: "/home/{{ username }}"
+  register: install_update_system
+
+- debug:
+    var: install_update_system

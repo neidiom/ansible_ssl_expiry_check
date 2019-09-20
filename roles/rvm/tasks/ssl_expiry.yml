@@ -1,0 +1,14 @@
+---
+- name: Install ssl_expiry gem
+  become: yes
+  become_user: "{{ username }}"
+  shell: >
+    /bin/bash -c "source $HOME/.rvm/scripts/rvm && gem install ssl_expiry"
+  args:
+    warn: no
+    executable: /bin/bash
+    chdir: "/home/{{ username }}"
+  register: gem_install_ssl_expiry
+
+- debug:
+    var: gem_install_ssl_expiry

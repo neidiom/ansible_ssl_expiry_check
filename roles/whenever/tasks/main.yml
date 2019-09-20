@@ -1,0 +1,4 @@
+---
+  - import_tasks: install_gem.yml
+  - import_tasks: generate_whenever_cron_job_file.yml
+  - import_tasks: update_crontab.yml

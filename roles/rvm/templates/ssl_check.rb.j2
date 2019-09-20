@@ -1,0 +1,21 @@
+#!/usr/bin/env rvm-auto-ruby
+require 'ssl_expiry'
+require 'slack-notifier'
+
+domains = Array.new
+{% for domain in domains %}
+domains << '{{ domain }}'
+{% endfor %}
+
+results = SSLExpiry::SSLExpiry.check_certificates(domains)
+
+results.each do |result|
+  expiry = result[1]['expires_in'].to_i
+  if expiry < {{ ssl_expiry_days_check }}
+    notifier = Slack::Notifier.new "{{ slack_webhook }}"
+    notifier.ping text: "#{result[0]} is expiring in #{result[1]['expires_in'].to_s} days",
+                  icon_emoji: ":bangbang:",
+                  color: "danger",
+                  username: "domain expiry notification for #{result[0]}"
+  end
+end

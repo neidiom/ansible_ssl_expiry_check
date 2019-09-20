@@ -1,0 +1,7 @@
+---
+    required_vars:
+      - domains
+      - slack_webhook
+    ruby_version: "2.6.3"
+    ssl_port: '443'
+    ssl_expiry_days_check: '30'

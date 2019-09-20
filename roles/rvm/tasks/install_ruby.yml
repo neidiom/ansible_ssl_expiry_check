@@ -1,0 +1,14 @@
+---
+- name: Compiling and installing Ruby, this can take time, please wait...
+  become: yes
+  become_user: "{{ username }}"
+  shell: >
+    /bin/bash -c "source $HOME/.rvm/scripts/rvm && rvm install {{ ruby_version }}"
+  args:
+    warn: no
+    executable: /bin/bash
+    chdir: "/home/{{ username }}"
+  register: install_ruby_output
+
+- debug:
+   var: install_ruby_output

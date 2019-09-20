@@ -1,0 +1,11 @@
+---
+- hosts: server
+  roles:
+    - user_group_directories
+    - rvm
+    - whenever
+  vars:
+    slack_webhook: ""
+    domains:
+      - gitlab.com
+      - github.com

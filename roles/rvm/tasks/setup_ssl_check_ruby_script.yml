@@ -1,0 +1,9 @@
+---
+  - name: Setup ssl check ruby script
+    become: yes
+    template:
+      src: templates/ssl_check.rb.j2
+      dest: /home/{{ username }}/.lib/scripts/ssl_check.rb
+      owner: "{{ username }}"
+      group: "{{ username }}"
+      mode: "u+rwx,g+rx,o+rx"

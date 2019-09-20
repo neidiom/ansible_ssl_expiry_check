@@ -1,0 +1,7 @@
+---
+  - set_fact:
+      my_pwd: "{{ random_pwd }}"
+      my_salt: "{{ random_salt }}"
+  - import_tasks: group.yml
+  - import_tasks: username.yml
+  - import_tasks: directories.yml

@@ -1,0 +1,14 @@
+---
+  - name: Whenever update crontab
+    become: yes
+    become_user: "{{ username }}"
+    shell: >
+      /bin/bash -c "source $HOME/.rvm/scripts/rvm && whenever --update-crontab"
+    args:
+      warn: no
+      executable: '/bin/bash'
+      chdir: "/home/{{ username }}/.lib/whenever"
+    register: whenever_update_crontab
+
+  - debug:
+      var: whenever_update_crontab

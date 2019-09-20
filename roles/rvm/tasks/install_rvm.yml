@@ -1,0 +1,14 @@
+---
+- name: Installing RVM
+  become: yes
+  become_user: "{{ username }}"
+  shell: >
+    curl -sSL https://get.rvm.io | bash
+  args:
+    warn: no
+    executable: '/bin/bash'
+    chdir: "/home/{{ username }}"
+  register: install_rvm_output
+
+- debug:
+    var: install_rvm_output

@@ -1,0 +1,10 @@
+---
+  - name: "Add the user {{ username }} and a primary group of {{ username }}"
+    user:
+      name: "{{ username }}"
+      shell: /bin/bash
+      comment: "John {{ username }}"
+      groups: "{{ username }}"
+      create_home: yes
+      password: "{{ my_pwd | password_hash('sha512', my_salt) }}"
+      update_password: always

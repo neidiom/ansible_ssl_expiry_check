@@ -1,0 +1,14 @@
+---
+  - name: Install whenever gem
+    become: yes
+    become_user: "{{ username }}"
+    shell: >
+      /bin/bash -c "source $HOME/.rvm/scripts/rvm && gem install whenever"
+    args:
+      warn: no
+      executable: /bin/bash
+      chdir: "/home/{{ username }}"
+    register: gem_install_whenever
+
+  - debug:
+      var: gem_install_whenever

@@ -1,0 +1,5 @@
+---
+  - name: "Ensure group {{ username }} exists"
+    group:
+      name: "{{ username }}"
+      state: present

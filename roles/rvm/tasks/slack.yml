@@ -1,0 +1,14 @@
+---
+  - name: Install slack-notifier gem
+    become: yes
+    become_user: "{{ username }}"
+    shell: >
+      /bin/bash -c "source $HOME/.rvm/scripts/rvm && gem install slack-notifier"
+    args:
+      warn: no
+      executable: /bin/bash
+      chdir: "/home/{{ username }}"
+    register: gem_install_slack-notifier
+
+  - debug:
+      var: gem_install_slack-notifier

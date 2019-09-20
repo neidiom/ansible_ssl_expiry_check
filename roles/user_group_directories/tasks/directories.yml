@@ -1,0 +1,13 @@
+---
+  - name: create extra monit directories
+    file:
+      path: "{{ item }}"
+      state: directory
+      owner: "{{ username }}"
+      group: "{{ username }}"
+      mode: "u+rwx,g+rx,o+rx"
+    with_items:
+     - "/home/{{ username }}/.lib"
+     - "/home/{{ username }}/.lib/scripts"
+     - "/home/{{ username }}/.lib/whenever"
+     - "/home/{{ username }}/.lib/whenever/config"

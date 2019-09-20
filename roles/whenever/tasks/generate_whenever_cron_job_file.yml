@@ -1,0 +1,9 @@
+---
+  - name: Generate whenever cron job file
+    become: yes
+    template:
+      src: templates/schedule.rb.j2
+      dest: /home/{{ username }}/.lib/whenever/config/schedule.rb
+      owner: "{{ username }}"
+      group: "{{ username }}"
+      mode: "u+rwx,g+rx,o+rx"

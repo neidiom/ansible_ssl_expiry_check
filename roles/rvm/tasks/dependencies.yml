@@ -1,0 +1,33 @@
+---
+- name: Installing Dependencies
+  become: yes
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+      - make
+      - curl
+      - gcc
+      - git
+      - gnupg
+      - sudo
+      - gawk
+      - g++
+      - libc6-dev
+      - libreadline6-dev
+      - zlib1g-dev
+      - libssl-dev
+      - libyaml-dev
+      - libsqlite3-dev
+      - sqlite3
+      - autoconf
+      - libgmp-dev
+      - libgdbm-dev
+      - libncurses5-dev
+      - automake
+      - libtool
+      - bison
+      - pkg-config
+      - libffi-dev
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
