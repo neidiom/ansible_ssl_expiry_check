@@ -8,7 +8,7 @@
       warn: no
       executable: /bin/bash
       chdir: "/home/{{ username }}"
-    register: gem_install_slack-notifier
+    register: gem_install_slack_notifier
 
   - debug:
-      var: gem_install_slack-notifier
+      var: gem_install_slack_notifier
