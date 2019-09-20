@@ -35,4 +35,4 @@ If you want to test things out then change `ssl_expiry_days_check` to something 
 ````
 ansible-playbook -i hosts ansible_ssl_check.yml
 ````
-This command presumes the hosts inventory file is in the current directory.
+This command assumes the hosts inventory file is in the current directory.
