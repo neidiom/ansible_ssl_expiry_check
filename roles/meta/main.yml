@@ -1,0 +1,17 @@
+galaxy_info:
+  author: Nedim Hadzimahmutovic
+  description: your description
+  company: your company (optional)
+  license: license (MIT)
+
+  min_ansible_version: 2.4
+
+  galaxy_tags: []
+  platforms:
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+dependencies: []
