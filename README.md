@@ -47,7 +47,7 @@ Add this repo as a submodule to your own repository.
 ````
 git submodule add git@github.com:neidiom/ansible_ssl_expiry_check.git
 ````
-and then update paths to roles =.
+and then update paths to roles.
 
 ````
 ---
@@ -86,4 +86,20 @@ Run to fetch the roles.
 
 ````
 ansible-galaxy install --force -r requirements.yml -p
+````
+
+#### Update paths to roles.
+
+````
+---
+- hosts: server_name
+  roles:
+    - ansible_ssl_expiry_check/user_group_directories
+    - ansible_ssl_expiry_check/rvm
+    - ansible_ssl_expiry_check/whenever
+  vars:
+    slack_webhook: "https://hooks.slack.com/services/xxxxxxx/xxxxxxx/xxxxxxxx"
+    domains:
+      - github.com
+      - gitlab.com
 ````
