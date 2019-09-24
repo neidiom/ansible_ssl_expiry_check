@@ -38,9 +38,9 @@ ansible-playbook -i hosts ansible_ssl_check.yml
 This command assumes the hosts inventory file is in the current directory.
 
 
-# How to use roles from this repository in my repository
+# How to use roles from this repository in another repository?
 
-## As git submodule
+## As a git submodule
 
 Add this repo as a submodule to your own repository.
 
@@ -69,4 +69,21 @@ and then update paths to roles =.
 
 ````
 ansible-galaxy install --force -n -p .  git+https://github.com/neidiom/ansible_ssl_expiry_check.git
+````
+
+### via requirements.yml file
+
+Create a *requirements.yml*
+
+````
+---
+- name: ansible_ssl_expiry_check
+  scm: git
+  src: git+https://github.com/neidiom/ansible_ssl_expiry_check.git
+  version: master
+````
+Run to fetch the roles.
+
+````
+ansible-galaxy install --force -r requirements.yml -p
 ````
