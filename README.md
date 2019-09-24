@@ -36,3 +36,37 @@ If you want to test things out then change `ssl_expiry_days_check` to something 
 ansible-playbook -i hosts ansible_ssl_check.yml
 ````
 This command assumes the hosts inventory file is in the current directory.
+
+
+# How to use roles from this repository in my repository
+
+## As git submodule
+
+Add this repo as a submodule to your own repository.
+
+````
+git submodule add git@github.com:neidiom/ansible_ssl_expiry_check.git
+````
+and then update paths to roles =.
+
+````
+---
+- hosts: server_name
+  roles:
+    - ansible_ssl_expiry_check/roles/user_group_directories
+    - ansible_ssl_expiry_check/roles/rvm
+    - ansible_ssl_expiry_check/roles/whenever
+  vars:
+    slack_webhook: "https://hooks.slack.com/services/xxxxxxx/xxxxxxx/xxxxxxxx"
+    domains:
+      - github.com
+      - gitlab.com
+````
+
+## Install using ansible-galaxy
+
+### via CLI
+
+````
+ansible-galaxy install --force -n -p .  git+https://github.com/neidiom/ansible_ssl_expiry_check.git
+````
